@@ -8,7 +8,7 @@ import ParagraphSkeleton from "../../Common/ParagraphSkeleton";
 const ClientReviews = () => {
 
     const { isLoading, error, data } = useQuery('review', () =>
-        fetch('api/review')
+        axios.get('api/review')
             .then(({ data }) => data)
             .catch(error => console.error('Error fetching testimonials:', error)))
 
