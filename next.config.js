@@ -8,7 +8,8 @@ module.exports = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: 'mihirpalyekar.github.io',
+  basePath: '/mihirpalyekar-portfolio',
+  assetPrefix: '/mihirpalyekar-portfolio/',
   trailingSlash: true,
  
 }
