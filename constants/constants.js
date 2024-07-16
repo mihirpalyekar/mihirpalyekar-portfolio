@@ -1,5 +1,7 @@
 export const NAME = 'Mihir Lahu Palyekar';
 
+export const PROFILE_URL = 'images/Mihir.jpg'
+
 export const DESIGNATION = `MERN Stack Developer | Full Stack Developer | Software Developer | Python Developer`;
 
 export const DETAILS = {

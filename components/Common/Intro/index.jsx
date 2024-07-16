@@ -8,8 +8,7 @@ import Location from './Location';
 import Tools from './Tools';
 import Skills from './Skills';
 import Image from 'next/image';
-import { NAME, DESIGNATION, SOCIAL_LINKS } from '../../../constants/constants';
-import {Mihir} from '../../../public/images/mihir.jpg';
+import { NAME, DESIGNATION, SOCIAL_LINKS, PROFILE_URL } from '../../../constants/constants';
 
 
 const Intro = () => {
@@ -17,7 +16,7 @@ const Intro = () => {
     <>
       {/* fixed at top */}
       <div className='headerr z-50 absolute bg-MidNightBlack backdrop-blur-sm inset-y-0 h-48 top-0 flex items-center justify-center w-full flex-col px-4 gap-y-4'>
-        <Image className='w-20 h-20 rounded-full object-cover' src={Mihir} alt='profile picture' />
+        <Image className='w-20 h-20 rounded-full object-cover' src={PROFILE_URL} alt='profile picture' />
         <div className='flex flex-col items-center justify-center'>
           <span className='text-gray-300 text-base font-bold break-normal'>{NAME}</span>
           <span className='text-sm text-LightGray text-center mt-2'>{DESIGNATION}</span>
