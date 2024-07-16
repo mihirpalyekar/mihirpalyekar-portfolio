@@ -24,14 +24,6 @@ const recommendationCard = [
     view: "Mihir is extremely dedicated and hardworking individual. He is a great problem solver with a never giving up attitude. He is proficient at JavaScript and Frontend in general. I’ve collaborated with him on multiple projects. Exceptional team player and an asset for any team.",
     linkednURL: "https://www.linkedin.com/in/pagarevijayy/"
   },
-  {
-    id: 3,
-    name: 'Muhammad Ullah',
-    image: "images/muhammad.jpeg",
-    designation: 'MERN Stack Developer at Productbox',
-    view: "I highly recommend Osama Javed for web frontend development positions. Their expertise in ReactJS and Next.js, combined with their professionalism and dedication, make them an invaluable asset to any team.",
-    linkednURL: "https://www.linkedin.com/in/muhammadullahafridi/"
-  },
 ]
 export default function handler(req, res) {
   res.status(200).json(recommendationCard)
