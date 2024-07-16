@@ -6,9 +6,24 @@ import ParagraphSkeleton from "../../Common/ParagraphSkeleton";
 const MyExpertise = () => {
 
     const { isLoading, error, data } = useQuery('expertise', () =>
-        axios.get('api/expertise')
-            .then(({ data }) => data)
-            .catch(error => console.error('Error fetching testimonials:', error)))
+        // axios.get('api/expertise')
+        //     .then(({ data }) => {
+        //         console.log(data)
+        //         data})
+        //     .catch(error => console.error('Error fetching testimonials:', error)))
+        fetch('/api/expertise')
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                return data
+            })
+            .catch(error => {
+                console.error('Error fetching testimonials:', error);
+            }));
 
     return (
         <>

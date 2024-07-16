@@ -10,7 +10,7 @@ import ImageAndParagraphSkeleton from "../components/Common/ImageAndParagraphSke
 const Portfolio = () => {
 
     const { isLoading, error, data } = useQuery('portfolio', () =>
-        axios.get('api/portfolio')
+        fetch('api/portfolio')
             .then(({ data }) => data)
             .catch(error => console.error('Error fetching testimonials:', error)))
     return (
