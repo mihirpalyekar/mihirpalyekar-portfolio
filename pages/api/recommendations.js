@@ -10,6 +10,14 @@ const recommendationCard = [
   },
   {
     id: 1,
+    name: 'Vijay Pagare',
+    image: "images/Vijay Pagare.jpeg",
+    designation: 'Senior Experience Engineer at Publicis Sapient | Passionate about frontend web dev & product building',
+    view: "Mihir is extremely dedicated and hardworking individual. He is a great problem solver with a never giving up attitude. He is proficient at JavaScript and Frontend in general. I’ve collaborated with him on multiple projects. Exceptional team player and an asset for any team.",
+    linkednURL: "https://www.linkedin.com/in/pagarevijayy/"
+  },
+  {
+    id: 2,
     name: 'Mohit Gahlot',
     image: "images/Mohit Gahlot.jpeg",
     designation: 'Tech@Lenskart',
@@ -17,13 +25,13 @@ const recommendationCard = [
     linkednURL: "https://www.linkedin.com/in/gahlotbaba/"
   },
   {
-    id: 2,
-    name: 'Vijay Pagare',
-    image: "images/Vijay Pagare.jpeg",
-    designation: 'Senior Experience Engineer at Publicis Sapient | Passionate about frontend web dev & product building',
-    view: "Mihir is extremely dedicated and hardworking individual. He is a great problem solver with a never giving up attitude. He is proficient at JavaScript and Frontend in general. I’ve collaborated with him on multiple projects. Exceptional team player and an asset for any team.",
-    linkednURL: "https://www.linkedin.com/in/pagarevijayy/"
-  },
+    id: 3,
+    name: 'Omkar Todkar',
+    image: "images/Omkar Todkar.jpeg",
+    designation: 'Founder and Chief Technology Officer at BinaryTouch',
+    view: "I am delighted to recommend Mihir Palyekar, whose exceptional expertise as a Frontend Developer Freelancer has been pivotal to our projects' success. Mihir engineered reusable frontend components using React, Redux, TypeScript, and Tailwind, ensuring comprehensive test coverage with Jest and optimizing code with Babel. He enhanced our data analytics by implementing Google Tag Manager (GTM) for custom event tracking, aiding the product manager in extracting insights for informed decision-making. His seamless integration of third-party libraries for infinite scroll and Google Auth login significantly improved our search logic based on location and gender. Beyond his technical skills, Mihir excelled as a proactive, reliable, and effective team player. He championed Test-Driven Development (TDD) methodologies for frontend development, fostering an environment conducive to producing error-free code. Mihir's positive attitude, clear communication, and collaborative approach greatly contributed to our projects' success. I wholeheartedly recommend Mihir for any development role, as his exceptional skills and dedication make him an invaluable asset to any team.",
+    linkednURL: "https://www.linkedin.com/in/omtodkar/"
+  }
 ]
 export default function handler(req, res) {
   res.status(200).json(recommendationCard)
