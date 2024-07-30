@@ -1,10 +1,11 @@
 import { ImCross } from 'react-icons/im'
 import { FiAward } from 'react-icons/fi'
-import { FaHandshake } from 'react-icons/fa'
+import { FaHandshake, FaDownload } from 'react-icons/fa'
 import { ImHome } from 'react-icons/im'
 import { HiIdentification } from 'react-icons/hi'
 import NavItem from './NavItem'
 import DrawerLayout from '../DrawerLayout'
+import { RESUME_DRIVE_LINK } from './../../../constants/constants'
 
 const Nav = ({ setIsOpen, isOpen }) => {
     return (
@@ -18,6 +19,7 @@ const Nav = ({ setIsOpen, isOpen }) => {
                     <NavItem setIsOpen={setIsOpen} NavRoute={'/contact'} NavIcon={<FaHandshake />} NavText={'Contact'} />
                     <NavItem setIsOpen={setIsOpen} NavRoute={'/background'} NavIcon={<HiIdentification />} NavText={'Background'} />
                     <NavItem setIsOpen={setIsOpen} NavRoute={'/portfolio'} NavIcon={<FiAward />} NavText={'Portfolio'} />
+                    <NavItem setIsOpen={setIsOpen} NavRoute={RESUME_DRIVE_LINK} target="_blank" NavIcon={<FaDownload />} NavText={'Download Resume'} />
                 </div>
             </div>
         </DrawerLayout>

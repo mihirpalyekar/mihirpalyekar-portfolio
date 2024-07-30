@@ -19,8 +19,8 @@ const Portfolio = () => {
 
                 {
                     isLoading ?
-                        [1, 2, 3, 4].map(() => (
-                            <ImageAndParagraphSkeleton className={"w-full object-cover"} />
+                        [1, 2, 3, 4].map((key) => (
+                            <ImageAndParagraphSkeleton key={key+1000} className={"w-full object-cover"} />
                         ))
                         :
                         data?.map((data, key) => (

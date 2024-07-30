@@ -1,18 +1,23 @@
 import Intro from '../components/Common/Intro';
-import { FaBars, FaMousePointer, FaDownload } from 'react-icons/fa';
+import { FaBars, FaMousePointer, FaDownload, FaHandshake } from 'react-icons/fa';
 import { SlOptionsVertical } from 'react-icons/sl';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavItem from './../components/Common/Nav/NavItem'
 import { FiAward } from 'react-icons/fi'
-import { FaHandshake } from 'react-icons/fa'
 import { ImHome } from 'react-icons/im'
 import { HiIdentification } from 'react-icons/hi'
 import Download from './../components/Common/Intro/Download';
-import {RESUME_DRIVE_LINK} from './../constants/constants'
+import { RESUME_DRIVE_LINK } from './../constants/constants'
+import Nav from '../components/Common/Nav/Nav';
+import { isMobile } from 'react-device-detect';
 export default function Layout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const [intro, setIntro] = useState(false);
-
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    // This effect runs only on the client side
+    setIsClient(true);
+  }, []);
   return (
     <div className={`h-screen lg:p-[0.8rem] flex flex-col select-none font-circular`}>
       <div className='lg:hidden'>
@@ -41,20 +46,41 @@ export default function Layout({ children }) {
           <Intro isOpen={intro} setIsOpen={setIntro} />
         </div>
         {/* overlay */}
-        {/* {intro && <div onClick={(e) => setIntro(false)} className='fixed top-0 left-0  w-full h-full bg-black/50 backdrop-blur-[2px] z-40'></div>} */}
+        {intro && <div onClick={(e) => setIntro(false)} className='fixed top-0 left-0  w-full h-full bg-black/50 backdrop-blur-[2px] z-40'></div>}
 
         {/* middle of screen */}
         <div className='w-full h-auto lg:w-9/12 shadow-2xl bg-DeepNightBlack relative overflow-auto overflow-x-hidden no-scrollbar'>{children}</div>
 
         {/* right side */}
         {/* right side */}
-        <div className={`hidden p-2 lg:block absolute lg:w-44 lg:relative bg-DeepNightBlack shadow-2xl rounded-xl overflow-hidden`}>
-          <NavItem setIsOpen={setIsOpen} NavRoute={'/'} NavIcon={<ImHome />} NavText={'Home'} />
-          <NavItem setIsOpen={setIsOpen} NavRoute={'/contact'} NavIcon={<FaHandshake />} NavText={'Contact'} />
-          <NavItem setIsOpen={setIsOpen} NavRoute={'/background'} NavIcon={<HiIdentification />} NavText={'Background'} />
-          <NavItem setIsOpen={setIsOpen} NavRoute={'/portfolio'} NavIcon={<FiAward />} NavText={'Portfolio'} />
-          <NavItem setIsOpen={setIsOpen} NavRoute={RESUME_DRIVE_LINK} target="_blank"  NavIcon={<FaDownload />} NavText={'Download Resume'} />
-        </div>
+        { isClient && isMobile ? (
+          <>
+            <div className={`hidden lg:block absolute lg:w-20 lg:relative bg-DeepNightBlack shadow-2xl rounded-xl overflow-hidden`}>
+              <div onClick={(e) => setIsOpen(!isOpen)} className='bg-MidNightBlack text-Green hidden lg:flex items-center h-16 justify-center text-2xl '>
+                <span className='icon border-2 border-Green p-2 rounded-xl'>
+                  {' '}
+                  <FaBars />
+                </span>
+              </div>
+              <span className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 flex items-center justify-center text-center text-xl text-gray-600 font-extrabold tracking-widest'>
+                NavBar
+              </span>
+            </div>
+            <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
+          </>
+        ) : (
+          <>
+            <div className={`hidden p-2 lg:block absolute lg:w-44 lg:relative bg-DeepNightBlack shadow-2xl rounded-xl overflow-hidden`}>
+              <NavItem setIsOpen={setIsOpen} NavRoute={'/'} NavIcon={<ImHome />} NavText={'Home'} />
+              <NavItem setIsOpen={setIsOpen} NavRoute={'/contact'} NavIcon={<FaHandshake />} NavText={'Contact'} />
+              <NavItem setIsOpen={setIsOpen} NavRoute={'/background'} NavIcon={<HiIdentification />} NavText={'Background'} />
+              <NavItem setIsOpen={setIsOpen} NavRoute={'/portfolio'} NavIcon={<FiAward />} NavText={'Portfolio'} />
+              <NavItem setIsOpen={setIsOpen} NavRoute={RESUME_DRIVE_LINK} target="_blank" NavIcon={<FaDownload />} NavText={'Download Resume'} />
+            </div>
+          </>
+        )}
+
+
       </div>
     </div>
   );
